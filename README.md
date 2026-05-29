@@ -1,5 +1,25 @@
 # Earnings Options Pipeline
 
+Pipeline to download options and price data around earnings for a list of tickers using IBKR and Databento. Additionally, one can use this data to run the interactive dashboard. 
+The goal is to find tickers that have a consistently overpriced vol into earnings, where taking on risk gets rewarded.
+
+The main focus currently is on selling straddles, struck ATM at a predefined point pre-release (standard 30min, 15min, 5min and at close) and visualizing / analyzing the performance during the following day.
+The dashboard allows for customization in regard to execution (traded at mid, half cross of the spread or full cross).
+
+The data pipeline can be rerun at any point in time and modules can be turned on and off. Rerunning the pipeline with incremental turned off will redownload everything. Turning it on will only redownload the last 90 days (by default) and check the future 365 days. Adding new tickers is not an issue. Incremental on differentiates between new and old tickers, so old tickers will only rerun the last 90 days, whereas new ones will download the entire history.
+At the end one data file called "earnings_options_final_latest" in the folder "04_straddles" is produced. This is the one the dashboard automatically uses and contains all combinations of entry and exit. 
+
+Caveats:
+- Modules 3 and 4 are really slow as of now (Module 4 should be patched soon). Module 3 has the issue of creating a bunch of unique download instances, instead of downloading everything at once (this is done to reduce costs tremendously).
+- Sometimes data points are missing in the final file. This can usually be fixed by rerunning the pipeline with incremental turned on.
+
+Future Implementations:
+- IV vs realized Vol instead of straddle:
+  - Trying to implement this right now. Bit unsure regarding arb violations on less liquid tickers (Maybe Fengler Arb Repair again?), as well as model specifications (simple inversion not enough?).
+- Adding different structures:
+  - Sell Strangles, Condors / Fly's, as well as Ratios.
+- Post-earnings behaviour analysis
+  - Currently doing this in excel manually. Some tickers exhibit consistent intraday behavior after announcement, e.g. flat overnight, move starts couple min after open. Additionally, some pairs show a significant correlation on earnings reactions, e.g. MA / V.
 
 ## Requirements
 
