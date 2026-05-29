@@ -22,6 +22,8 @@ Future Implementations:
 - Post-earnings behaviour analysis
   - Currently doing this in excel manually. Some tickers exhibit consistent intraday behavior after announcement, e.g. flat overnight, move starts couple min after open. Additionally, some pairs show a significant correlation on earnings reactions, e.g. MA / V.
 
+For questions, feedback, etc. please email me
+
 ## Requirements
 
 - Python 3.9+ (uses the stdlib `zoneinfo`)
