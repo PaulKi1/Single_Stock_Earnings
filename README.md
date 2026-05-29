@@ -12,6 +12,7 @@ At the end one data file called "earnings_options_final_latest" in the folder "0
 Caveats:
 - Modules 3 and 4 are really slow as of now (Module 4 should be patched soon). Module 3 has the issue of creating a bunch of unique download instances, instead of downloading everything at once (this is done to reduce costs tremendously).
 - Sometimes data points are missing in the final file. This can usually be fixed by rerunning the pipeline with incremental turned on.
+- I have only tried this with US tickers so far (not sure Databento offers other data). 
 
 Future Implementations:
 - IV vs realized Vol instead of straddle:
