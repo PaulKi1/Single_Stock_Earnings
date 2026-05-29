@@ -1,0 +1,10 @@
+pandas==3.0.3
+numpy==2.4.6
+python-dateutil==2.9.0.post0
+pandas_market_calendars==5.4.0
+pyarrow==24.0.0
+openpyxl==3.1.5
+matplotlib==3.10.9
+ib_async==2.1.0
+databento==0.78.0
+python-dotenv==1.2.2
